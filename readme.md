@@ -1,1 +1,0 @@
-# command for running nodemon **yarn.cmd dev**
