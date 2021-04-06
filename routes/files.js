@@ -63,7 +63,7 @@ router.post('/', (req, res) => {
     // Response  -> Link
 });
 
-router.post('/send', async(req, res) => {
+router.post('/send', async (req, res) => {
     // console.log(req.body);
     // return res.send({});
     const { uuid, emailTo, emailFrom } = req.body;
@@ -72,13 +72,13 @@ router.post('/send', async(req, res) => {
     //Validate request
 
     if (!uuid || !emailTo || !emailFrom) {
-        return res.status(422).send({error: 'All Fields are required.'});
+        return res.status(422).send({ error: 'All Fields are required.' });
     }
- 
+
     // Get Data From database
 
-    const file = await File.findOne({uuid: uuid});
-    if(file.sender) {
+    const file = await File.findOne({ uuid: uuid });
+    if (file.sender) {
         return res.status(422).send({ error: 'Email Already sent.' });
     }
 
@@ -97,12 +97,12 @@ router.post('/send', async(req, res) => {
         html: require('../services/emailTemplate')({
             emailFrom: emailFrom,
             downloadLink: `${process.env.APP_BASE_URL}/files/${file.uuid}`,
-            size: parseInt(file.size/1000) + ' KB',
+            size: parseInt(file.size / 1000) + ' KB',
             expires: '24 hours'
         })
     });
 
-    return res.send({success: true});
+    return res.send({ success: true });
 });
 
 module.exports = router;
