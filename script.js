@@ -21,8 +21,9 @@ async function fetchData() {
                 console.log(`error while deleting file ${err}`);
             }
         }
-        console.log('Job done!');
+        
     }
+    console.log('Job done!');
 }
 
 fetchData().then(process.exit);
