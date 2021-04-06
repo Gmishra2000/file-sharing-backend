@@ -21,11 +21,11 @@ const corsOption = {
     // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:5001']
 }
 
-app.use(cors(corsOption));
+app.use(cors());
 
 
 // Template engine
-app.set('views', path.join(__dirname,'/views'));
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 
@@ -41,6 +41,6 @@ app.use('/files', require('./routes/show'));
 app.use('/files/download', require('./routes/download'));
 
 
-app.listen(PORT, 
-console.log(`Listening on port ${PORT}.`));
+app.listen(PORT,
+    console.log(`Listening on port ${PORT}.`));
 
