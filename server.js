@@ -16,10 +16,10 @@ connectDB();
 
 // Cors
 
-const corsOption = {
-    origin: process.env.ALLOWED_CLIENTS.split(',')
-    // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:5001']
-}
+// const corsOption = {
+//     origin: process.env.ALLOWED_CLIENTS.split(',')
+//     // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:5001']
+// }
 
 app.use(cors());
 
